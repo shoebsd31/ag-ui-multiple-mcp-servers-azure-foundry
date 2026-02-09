@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@import "@copilotkit/react-ui/styles.css";
+
+/* ========================================
+   AG-UI Demo - CopilotKit Chat UX Overrides
+   ======================================== */
+
+/* --- CSS Custom Properties (Theme) --- */
+:root {
+  --copilot-kit-primary-color: #4f46e5;
+  --copilot-kit-contrast-color: #ffffff;
+  --copilot-kit-background-color: #f8fafc;
+  --copilot-kit-input-background-color: #ffffff;
+  --copilot-kit-secondary-color: #ffffff;
+  --copilot-kit-secondary-contrast-color: #1e293b;
+  --copilot-kit-separator-color: #e2e8f0;
+  --copilot-kit-muted-color: #94a3b8;
+}
+
+/* --- Chat Panel Root --- */
+.copilotKitChat {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* --- Header Styling --- */
+.copilotKitHeader {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+  height: 60px;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+.copilotKitHeader > button {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.copilotKitHeader > button:hover {
+  color: #ffffff !important;
+}
+
+/* --- Messages Area --- */
+.copilotKitMessages {
+  background-color: #f8fafc !important;
+  scroll-behavior: smooth;
+}
+.copilotKitMessages::-webkit-scrollbar {
+  width: 6px;
+}
+.copilotKitMessages::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10rem;
+}
+.copilotKitMessages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* --- User Message Bubbles --- */
+.copilotKitMessage.copilotKitUserMessage {
+  background: linear-gradient(135deg, #4f46e5, #6366f1) !important;
+  color: #ffffff !important;
+  border-radius: 18px 18px 4px 18px !important;
+  padding: 10px 16px !important;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+  max-width: 75% !important;
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* --- Assistant Message Bubbles --- */
+.copilotKitMessage.copilotKitAssistantMessage {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 18px 18px 18px 4px !important;
+  padding: 14px 18px !important;
+  max-width: 90% !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  animation: slideInLeft 0.3s ease-out;
+}
+
+/* --- Markdown inside Assistant Messages --- */
+
+/* Headers */
+.copilotKitMessage.copilotKitAssistantMessage h1,
+.copilotKitMessage.copilotKitAssistantMessage h2 {
+  font-size: 1.15em !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+.copilotKitMessage.copilotKitAssistantMessage h3 {
+  font-size: 1.05em !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  margin-top: 0.6rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* Paragraphs */
+.copilotKitMessage.copilotKitAssistantMessage p {
+  line-height: 1.7;
+  color: #334155;
+}
+
+/* Bold text */
+.copilotKitMessage.copilotKitAssistantMessage strong {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Lists */
+.copilotKitMessage.copilotKitAssistantMessage ul {
+  padding-left: 1.25rem;
+  margin-top: 0.25rem;
+}
+.copilotKitMessage.copilotKitAssistantMessage li {
+  margin-bottom: 0.3rem;
+  line-height: 1.65;
+}
+
+/* Blockquotes */
+.copilotKitMessage.copilotKitAssistantMessage blockquote {
+  border-left: 3px solid #6366f1 !important;
+  background: #f1f5f9 !important;
+  padding: 0.6rem 0.9rem !important;
+  border-radius: 0 8px 8px 0;
+  margin: 0.5rem 0 !important;
+  color: #475569;
+  font-style: italic;
+}
+
+/* Tables */
+.copilotKitMessage.copilotKitAssistantMessage table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.copilotKitMessage.copilotKitAssistantMessage thead {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+}
+.copilotKitMessage.copilotKitAssistantMessage th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #1e293b;
+  border-bottom: 2px solid #cbd5e1;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.copilotKitMessage.copilotKitAssistantMessage td {
+  padding: 7px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+}
+.copilotKitMessage.copilotKitAssistantMessage tbody tr:hover {
+  background-color: #f8fafc;
+}
+.copilotKitMessage.copilotKitAssistantMessage tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Inline code */
+.copilotKitMessage.copilotKitAssistantMessage code:not(pre code) {
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #7c3aed;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+/* Code blocks */
+.copilotKitMessage.copilotKitAssistantMessage pre {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+/* --- Input Area --- */
+.copilotKitInput {
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.copilotKitInput:focus-within {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+.copilotKitInput textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* --- Suggestion Chips --- */
+.copilotKitMessages footer .suggestions {
+  gap: 8px;
+  padding: 4px 0;
+}
+.copilotKitMessages footer .suggestions .suggestion {
+  padding: 8px 14px !important;
+  font-size: 0.8rem !important;
+  border-radius: 20px !important;
+  border: 1px solid #c7d2fe !important;
+  color: #4338ca !important;
+  background: #eef2ff !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.copilotKitMessages footer .suggestions .suggestion:hover {
+  background: #c7d2fe !important;
+  border-color: #a5b4fc !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.15);
+}
+
+/* --- Message Animations --- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Activity Dots / Loading --- */
+.copilotKitActivityDot {
+  background-color: #6366f1 !important;
+}
