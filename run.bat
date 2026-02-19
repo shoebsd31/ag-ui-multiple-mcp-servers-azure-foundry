@@ -17,13 +17,13 @@ echo   Frontend: http://localhost:3000
 echo.
 
 REM Start backend in a new window
-start "AG-UI Backend" cmd /k "cd /d %~dp0backend && dotnet run --project McpAguiServer --urls http://localhost:5018"
+start "AG-UI Backend" cmd /k "cd /d %~dp0app\backend && dotnet run --project McpAguiServer --urls http://localhost:5018"
 
 REM Wait for backend to initialize
 timeout /t 5 /nobreak > nul
 
 REM Start frontend in a new window
-start "AG-UI Frontend" cmd /k "cd /d %~dp0frontend && set BACKEND_URL=http://localhost:5018 && pnpm dev"
+start "AG-UI Frontend" cmd /k "cd /d %~dp0app\frontend && set BACKEND_URL=http://localhost:5018 && pnpm dev"
 
 echo.
 echo Both services starting in separate windows.
